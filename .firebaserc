@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "statuslog-4bf5e"
+  },
+  "targets": {
+    "statuslog-4bf5e": {
+      "hosting": {
+        "main": [
+          "statuslog"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
