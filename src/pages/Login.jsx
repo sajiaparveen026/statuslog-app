@@ -39,7 +39,7 @@ export default function Login() {
     <div className="auth-wrapper">
       <div className="auth-card">
         <div className="auth-logo">
-          <h1>WorkTracker</h1>
+          <h1>Status Log</h1>
           <p>Track your daily work progress</p>
         </div>
 
