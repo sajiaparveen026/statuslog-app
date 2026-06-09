@@ -43,7 +43,7 @@ export default function Login() {
           <p>Track your daily work progress</p>
         </div>
 
-        <h2>Welcome back</h2>
+        <h2>Hey Welcome !</h2>
         <p style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 20, marginTop: -16 }}>
           Contact your admin if you don't have an account.
         </p>
@@ -53,7 +53,7 @@ export default function Login() {
         <form onSubmit={handleLogin}>
           <div className="form-group">
             <label>Email</label>
-            <input type="email" placeholder="you@example.com"
+            <input type="email" placeholder="you@gmail.com"
               value={email} onChange={e => setEmail(e.target.value)} required />
           </div>
           <div className="form-group">

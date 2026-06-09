@@ -410,6 +410,7 @@ export default function Dashboard() {
         <h2 style={{ fontSize: 26, fontWeight: 700, color: '#F9FAFB', fontFamily: "'Crimson Text', serif" }}>Welcome, {adminName}! 👋</h2>
         <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
           <span style={{ fontSize: 13, color: '#9CA3AF' }}>{todayStr}</span>
+          <button className="btn-logout db-mobile-logout" onClick={logout}>Logout</button>
         </div>
       </div>
 

@@ -1412,3 +1412,14 @@ body {
   white-space: nowrap;
   display: inline-block;
 }
+
+/* Show logout in topbar only on mobile */
+.db-mobile-logout {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .db-mobile-logout {
+    display: block;
+  }
+}
