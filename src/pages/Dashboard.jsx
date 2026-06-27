@@ -364,7 +364,8 @@ export default function Dashboard() {
       'Allocated': e.day_type === 'working' ? e.allocated_count : 0,
       'Done': e.day_type === 'working' ? e.done_count : 0,
       'Remaining': e.day_type === 'working' ? (e.allocated_count - e.done_count) : 0,
-      'Status': e.status === 'done' ? 'Done' : e.status === 'pending' ? 'Pending' : e.status === 'weekly_off' ? 'Weekly Off' : e.status === 'leave' ? 'Leave' : 'Holiday'
+      'Status': e.status === 'done' ? 'Done' : e.status === 'pending' ? 'Pending' : e.status === 'weekly_off' ? 'Weekly Off' : e.status === 'leave' ? 'Leave' : 'Holiday',
+      'Comment': e.comment || '—'
     }))
 
     // Create workbook
@@ -375,7 +376,7 @@ export default function Dashboard() {
     ws['!cols'] = [
       { wch: 6 }, { wch: 18 }, { wch: 25 }, { wch: 12 },
       { wch: 12 }, { wch: 12 }, { wch: 14 }, { wch: 20 },
-      { wch: 14 }, { wch: 12 }, { wch: 8 }, { wch: 10 }, { wch: 10 }
+      { wch: 14 }, { wch: 12 }, { wch: 8 }, { wch: 10 }, { wch: 10 }, { wch: 24 }
     ]
 
     XLSX.utils.book_append_sheet(wb, ws, monthLabel)
@@ -567,11 +568,11 @@ export default function Dashboard() {
                   <div className="table-wrapper">
                     <table className="data-table">
                       <thead>
-                        <tr><th>S.No</th><th>Date</th><th>Day</th><th>Project</th><th>Process</th><th>Hours</th><th>Allocated</th><th>Done</th><th>Remaining</th><th>Status</th></tr>
+                        <tr><th>S.No</th><th>Date</th><th>Day</th><th>Project</th><th>Process</th><th>Hours</th><th>Allocated</th><th>Done</th><th>Remaining</th><th>Status</th><th>Comment</th></tr>
                       </thead>
                       <tbody>
                         {paginatedEntries.length === 0 ? (
-                          <tr><td colSpan={9} style={{ textAlign: 'center', padding: 40, color: 'var(--muted)' }}>
+                          <tr><td colSpan={11} style={{ textAlign: 'center', padding: 40, color: 'var(--muted)' }}>
                             <div style={{ fontSize: 32, marginBottom: 8 }}>📋</div>
                             No entries found for this filter.
                           </td></tr>
@@ -593,6 +594,9 @@ export default function Dashboard() {
                               <td style={{ color: '#4ADE80', fontWeight: 600 }}>{entry.day_type !== 'working' ? '—' : entry.done_count}</td>
                               <td style={{ color: rem > 0 ? '#F87171' : '#4ADE80', fontWeight: 600 }}>{entry.day_type !== 'working' ? '—' : rem}</td>
                               <td>{statusBadge(entry.status, entry.day_type)}</td>
+                              <td style={{ color: 'var(--muted)', maxWidth: 160, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={entry.comment || ''}>
+                                {entry.comment || '—'}
+                              </td>
                             </tr>
                           )
                         })}

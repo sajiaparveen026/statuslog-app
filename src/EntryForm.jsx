@@ -401,7 +401,7 @@ export default function EntryForm() {
         </div>
       </div>
 
-      <div className="content" style={{ maxWidth: 1100 }}>
+      <div className="content" style={{ maxWidth: 1400 }}>
         <div className="welcome-header">
           <div>
             <h2>Welcome, {userName}! 👋</h2>
@@ -557,7 +557,7 @@ export default function EntryForm() {
                         <td style={{ color: '#16A34A', fontWeight: 600 }}>{entry.day_type !== 'working' ? '—' : entry.done_count}</td>
                         <td style={{ color: rem > 0 ? '#DC2626' : '#16A34A', fontWeight: 600 }}>{entry.day_type !== 'working' ? '—' : rem}</td>
                         <td>{statusBadge(entry.status, entry.day_type)}</td>
-                        <td style={{ color: 'var(--muted)', maxWidth: 180, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={entry.comment || ''}>
+                        <td style={{ color: 'var(--muted)', maxWidth: 260, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={entry.comment || ''}>
                           {entry.comment || '—'}
                         </td>
                         {editMode && (
